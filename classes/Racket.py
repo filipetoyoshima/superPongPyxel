@@ -1,20 +1,20 @@
 from classes.Sprite import Sprite
-from classes.AssetImg import AssetImg
 import pyxel
 
 class Racket(Sprite):
 	def __init__(self, player):
 		if (player == 1):
-			self._y = pyxel.height - 10
-			self._x = pyxel.width / 2
-			self._player = 1
-			self._asset_img = AssetImg(
+			super().__init__(
+				y = pyxel.height - 10,
+				x = pyxel.width / 2,
 				u = 0,
 				v = 0,
 				img = 0,
 				w = 16,
 				h = 2
 			)
+			self._player = 1
+
 
 	def update(self):
 		"""
