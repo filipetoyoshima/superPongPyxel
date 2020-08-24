@@ -15,10 +15,6 @@ class Sprite(ABC):
 			h = h
 		)
 
-	_x = NotImplemented
-	_y = NotImplemented
-	_asset_img = AssetImg(0, 0, 0, 0, 0, 0, 0)
-
 	@property
 	def x(self):
 		return self._x
