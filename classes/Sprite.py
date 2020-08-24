@@ -4,13 +4,13 @@ import pyxel
 
 class Sprite(ABC):
 	@abstractmethod
-	def __init__(self, x, y, u, v, img, w, h):
+	def __init__(self, x, y, u, v, w, h, img=None):
 		self._x = x
 		self._y = y
 		self._asset_img = AssetImg(
 			u = u,
 			v = v,
-			img = img,
+			img = img or 0,
 			w = w,
 			h = h
 		)
@@ -27,6 +27,7 @@ class Sprite(ABC):
 	def y(self):
 		return self._y
 
+	@abstractmethod
 	def update(self):
 		pass
 
