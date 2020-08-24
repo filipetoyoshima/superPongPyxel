@@ -27,7 +27,6 @@ class Sprite(ABC):
 	def y(self):
 		return self._y
 
-	@abstractmethod
 	def update(self):
 		pass
 
