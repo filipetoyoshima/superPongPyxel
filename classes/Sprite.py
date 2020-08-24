@@ -1,14 +1,11 @@
 from abc import ABC, abstractmethod
+from classes.AssetImg import AssetImg
 import pyxel
 
 class Sprite(ABC):
 	_x = NotImplemented
 	_y = NotImplemented
-	_img = NotImplemented
-	_u = NotImplemented
-	_v = NotImplemented
-	_w = NotImplemented
-	_h = NotImplemented
+	_asset_img = AssetImg(0, 0, 0, 0, 0, 0, 0)
 
 	@property
 	def x(self):
@@ -22,12 +19,4 @@ class Sprite(ABC):
 		pass
 
 	def draw(self):
-		pyxel.blt(
-			x = self.x,
-			y = self.y,
-			img = self._img,
-			u = self._u,
-			v = self._v,
-			w = self._w,
-			h = self._h
-		)
+		self._asset_img.draw(self._x, self._y)
