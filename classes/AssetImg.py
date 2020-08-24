@@ -11,8 +11,15 @@ class AssetImg(object):
 		self._h = h
 
 	def draw(self, x=None, y=None):
-		if (x == None): x = self._x
-		if (y == None): y = self._y
+		if (x == None):
+			x = self._x
+		else:
+			x = x - self._w / 2
+
+		if (y == None):
+			y = self._y
+		else:
+			y = y - self._h / 2
 
 		pyxel.blt(
 			x = x,

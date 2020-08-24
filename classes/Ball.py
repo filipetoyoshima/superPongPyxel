@@ -18,8 +18,8 @@ class Ball(Sprite):
 		self._x = self.x + self._speed_x
 		self._y = self.y + self._speed_y
 
-		if (self.x <= 0 or self.x >= pyxel.width - 3):
+		if (self.x <= 2 or self.x >= pyxel.width - 2):
 			self._speed_x = self._speed_x * -1
 
-		if (self.y <= 0 or self.y >= pyxel.height - 3):
+		if (self.y <= 2 or self.y >= pyxel.height - 2):
 			self._speed_y = self._speed_y * -1
