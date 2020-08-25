@@ -6,9 +6,11 @@ class Game(object):
 	def __init__(self):
 		pyxel.init(80, 120, caption="Super Pong")
 		pyxel.load('./../assets/resorces.pyxres')
-		self.racket = Racket(1)
+		
+		self.players = [Racket(0), Racket(1)]
 		self.ball = Ball()
-		self.sprites = [self.racket, self.ball]
+		self.sprites = [self.players[0], self.players[1], self.ball]
+		
 		pyxel.run(self.update, self.draw)
 
 	def update(self):
