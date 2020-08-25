@@ -14,20 +14,24 @@ class Ball(Sprite):
 		self._speed_x = 0
 		self._speed_y = 1.5
 		self._score_updater = score_updater
+		self._time_to_start = 100
 
 	def update(self):
-		self._x = self.x + self._speed_x
-		self._y = self.y + self._speed_y
+		if (self._time_to_start > 0):
+			self._time_to_start = self._time_to_start - 1
+		else:
+			self._x = self.x + self._speed_x
+			self._y = self.y + self._speed_y
 
-		if (self.x <= 2 or self.x >= pyxel.width - 2):
-			self._speed_x = self._speed_x * -1
+			if (self.x <= 2 or self.x >= pyxel.width - 2):
+				self._speed_x = self._speed_x * -1
 
-		if (self.y <= 2):
-			self._score_updater(0)
-			self.reset_ball(1)
-		elif (self.y >= pyxel.height - 2):
-			self._score_updater(1)
-			self.reset_ball(0)
+			if (self.y <= 2):
+				self._score_updater(0)
+				self.reset_ball(1)
+			elif (self.y >= pyxel.height - 2):
+				self._score_updater(1)
+				self.reset_ball(0)
 
 	def reset_ball(self, player):
 		speed_y = 0
@@ -43,8 +47,17 @@ class Ball(Sprite):
 		self._y = pyxel.height / 2
 		self._speed_x = 0
 		self._speed_y = speed_y
+		self._time_to_start = 100
 		
 
 	def hit(self, speed=0):
 		self._speed_y = self._speed_y * -1
 		self._speed_x = self._speed_x + speed
+
+
+	def draw(self):
+		if (self._time_to_start > 0):
+			if ((self._time_to_start // 10) % 2 == 0):
+				super().draw()
+		else:
+			super().draw()
