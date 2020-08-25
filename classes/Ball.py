@@ -4,8 +4,8 @@ import pyxel
 class Ball(Sprite):
 	def __init__(self):
 		super().__init__(
-			x = pyxel.height / 2,
-			y = pyxel.width / 2,
+			x = pyxel.width / 2,
+			y = pyxel.height / 2,
 			u = 0,
 			v = 8,
 			w = 3,
@@ -23,3 +23,6 @@ class Ball(Sprite):
 
 		if (self.y <= 2 or self.y >= pyxel.height - 2):
 			self._speed_y = self._speed_y * -1
+
+	def hit(self):
+		self._speed_y = self._speed_y * -1

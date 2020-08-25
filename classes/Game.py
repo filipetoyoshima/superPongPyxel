@@ -16,6 +16,10 @@ class Game(object):
 	def update(self):
 		for sprite in self.sprites:
 			sprite.update()
+		
+		for player in self.players:
+			if (self.ball.intersects(player)):
+				self.ball.hit()
 
 	def draw(self):
 		pyxel.cls(0)
