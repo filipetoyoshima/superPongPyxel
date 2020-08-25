@@ -24,5 +24,6 @@ class Ball(Sprite):
 		if (self.y <= 2 or self.y >= pyxel.height - 2):
 			self._speed_y = self._speed_y * -1
 
-	def hit(self):
+	def hit(self, speed=0):
 		self._speed_y = self._speed_y * -1
+		self._speed_x = self._speed_x + speed

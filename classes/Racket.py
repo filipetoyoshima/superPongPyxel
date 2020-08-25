@@ -29,6 +29,10 @@ class Racket(Sprite):
 			h = 2
 		)
 
+	@property
+	def speed(self):
+		return self._speed
+
 	def update(self):
 		"""
 		Updates the Racket attributes depending on user input
@@ -39,4 +43,5 @@ class Racket(Sprite):
 		if (pyxel.btn(self._right_key) and self.x < pyxel.width - 8):
 			speed += 1
 
+		self._speed = speed
 		self._x = self.x + speed

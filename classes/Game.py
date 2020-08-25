@@ -19,7 +19,8 @@ class Game(object):
 		
 		for player in self.players:
 			if (self.ball.intersects(player)):
-				self.ball.hit()
+				print(player._player, player.speed)
+				self.ball.hit(player.speed)
 
 	def draw(self):
 		pyxel.cls(0)
