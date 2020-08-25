@@ -30,3 +30,6 @@ class AssetImg(object):
 			w = self._w,
 			h = self._h
 		)
+
+	def update(self):
+		pass
