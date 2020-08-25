@@ -11,7 +11,7 @@ class Game(object):
 		self.score = Score()
 
 		self.players = [Racket(0), Racket(1)]
-		self.ball = Ball()
+		self.ball = Ball(self.score.add_score_to_player)
 		self.sprites = [self.players[0], self.players[1], self.ball]
 		
 		pyxel.run(self.update, self.draw)
