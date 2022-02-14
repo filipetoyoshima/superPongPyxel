@@ -1,10 +1,12 @@
 from classes.Sprite import Sprite
+from classes.Power import Power
 import pyxel
 
 class Racket(Sprite):
 	def __init__(self, player):
 		
 		self._speed = 0
+		self._power = Power(player)
 		initial_position = 0
 
 		if (player == 0):
@@ -45,3 +47,10 @@ class Racket(Sprite):
 
 		self._speed = speed
 		self._x = self.x + speed
+
+	def draw(self):
+		"""
+		Draws the Racket
+		"""
+		self._power.draw()
+		super().draw()
