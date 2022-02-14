@@ -17,7 +17,7 @@ class Power(object):
             self._y = 5
 
     def add_power(self, power):
-        if power < 12:
+        if self._power < 12:
             self._power = self._power + power
 
     def use_power(self):
@@ -35,6 +35,6 @@ class Power(object):
         CLOSE_BRACKET.draw(self._x + BRACKET_DISTANCE, self._y)
         available_power = self._power // 4
         for i in range(available_power):
-            PINK_MARKER.draw(self._x + (i * 5), self._y)
+            PINK_MARKER.draw(self._x + 3 + (i * 5), self._y)
         for i in range(self._power % 4):
-            PURPLE_MARKER.draw(self._x + available_power * 5 + 1 + i, self._y)
+            PURPLE_MARKER.draw(self._x + available_power * 5 + 2 + i, self._y)

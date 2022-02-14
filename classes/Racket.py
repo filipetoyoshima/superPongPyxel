@@ -35,6 +35,12 @@ class Racket(Sprite):
 	def speed(self):
 		return self._speed
 
+	def notify_hit(self):
+		"""
+		Notifies the Racket of a hit
+		"""
+		self._power.add_power(1)
+
 	def update(self):
 		"""
 		Updates the Racket attributes depending on user input

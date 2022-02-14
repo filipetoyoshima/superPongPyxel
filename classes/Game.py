@@ -22,6 +22,7 @@ class Game(object):
 		
 		for player in self.players:
 			if (self.ball.intersects(player)):
+				player.notify_hit()
 				self.ball.hit(player.speed)
 
 	def draw(self):
